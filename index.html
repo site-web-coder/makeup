@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxe Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">LUXE BEAUTY</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="cart-icon" onclick="toggleCart()">
+      🛍️ <span id="cart-count">0</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1>Luxury Makeup Collection</h1>
+      <p>Discover premium beauty inspired by Dior elegance.</p>
+      <button onclick="scrollToProducts()">Shop Now</button>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <h2>Featured Products</h2>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="">
+        <h3>Dior Lip Glow</h3>
+        <p class="price">$39</p>
+        <button onclick="addToCart('Dior Lip Glow', 39)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1200&auto=format&fit=crop" alt="">
+        <h3>Dior Foundation</h3>
+        <p class="price">$62</p>
+        <button onclick="addToCart('Dior Foundation', 62)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1631730486572-226f51f1e0f2?q=80&w=1200&auto=format&fit=crop" alt="">
+        <h3>Dior Palette</h3>
+        <p class="price">$75</p>
+        <button onclick="addToCart('Dior Palette', 75)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?q=80&w=1200&auto=format&fit=crop" alt="">
+        <h3>Dior Blush</h3>
+        <p class="price">$48</p>
+        <button onclick="addToCart('Dior Blush', 48)">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>About Luxe Beauty</h2>
+      <p>
+        Luxe Beauty delivers a luxury makeup experience inspired by timeless elegance and high-fashion beauty.
+        Explore premium cosmetics, glowing finishes, and sophisticated beauty essentials.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h3>LUXE BEAUTY</h3>
+    <p>Luxury Beauty Store Experience</p>
+    <p>Email: contact@luxebeauty.com</p>
+  </footer>
+
+  <!-- CART -->
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button onclick="toggleCart()">✖</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+      <h3>Total: $<span id="cart-total">0</span></h3>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
