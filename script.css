@@ -1,0 +1,79 @@
+let cart = [];
+let total = 0;
+
+function scrollToProducts() {
+  document.getElementById("products").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function addToCart(product, price) {
+
+  cart.push({ product, price });
+
+  total += price;
+
+  updateCart();
+
+  showNotification(product + " added to cart!");
+}
+
+function updateCart() {
+
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const cartCount = document.getElementById("cart-count");
+
+  cartItems.innerHTML = "";
+
+  cart.forEach((item) => {
+
+    const div = document.createElement("div");
+
+    div.classList.add("cart-item");
+
+    div.innerHTML = `
+      <div>
+        <h4>${item.product}</h4>
+        <p>$${item.price}</p>
+      </div>
+    `;
+
+    cartItems.appendChild(div);
+  });
+
+  cartTotal.textContent = total;
+  cartCount.textContent = cart.length;
+}
+
+function toggleCart() {
+
+  const sidebar = document.getElementById("cart-sidebar");
+
+  sidebar.classList.toggle("active");
+}
+
+function showNotification(message) {
+
+  const notification = document.createElement("div");
+
+  notification.className = "notification";
+
+  notification.innerText = message;
+
+  document.body.appendChild(notification);
+
+  notification.style.position = "fixed";
+  notification.style.bottom = "20px";
+  notification.style.right = "20px";
+  notification.style.background = "#222";
+  notification.style.color = "white";
+  notification.style.padding = "15px 20px";
+  notification.style.borderRadius = "10px";
+  notification.style.zIndex = "5000";
+  notification.style.boxShadow = "0 5px 20px rgba(0,0,0,0.2)";
+
+  setTimeout(() => {
+    notification.remove();
+  }, 2000);
+}
